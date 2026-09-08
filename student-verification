@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Verification - NextGen Digital Academy</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .certificate {
+      max-width: 650px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    .logo {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .institution-name {
+      font-size: 22px;
+      font-weight: bold;
+      color: #17324d;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      color: #17324d;
+      font-size: 20px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 15px;
+    }
+
+    .verified {
+      color: #198754;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0;
+      background-color: #e8f5e9;
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    .student-photo {
+      width: 120px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      margin: 15px auto;
+      display: block;
+    }
+
+    .details {
+      text-align: left;
+      margin-top: 25px;
+      line-height: 1.8;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .footer {
+      margin-top: 35px;
+      color: #777;
+      font-size: 13px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="certificate">
+
+    <!-- Institution Logo -->
+    <img src="1001315529.jpg" alt="NextGen Digital Academy Logo" class="logo">
+
+    <div class="institution-name">NextGen Digital Academy</div>
+    <h1>Certificate Verification</h1>
+
+    <div class="verified">
+      ✓ CERTIFICATE VERIFIED
+    </div>
+
+    <!-- Student Photo -->
+    <img src="greenfield.jpeg" alt="Student Photo" class="student-photo">
+
+    <div class="details">
+
+      <p>
+        <span class="label">Student Name:</span>
+        STUDENT NAME
+      </p>
+
+      <p>
+        <span class="label">Course:</span>
+        PROFESSIONAL COURSE NAME
+      </p>
+
+      <p>
+        <span class="label">Certificate Number:</span>
+        CERT-2026-001
+      </p>
+
+      <p>
+        <span class="label">Issue Date:</span>
+        08 September 2026
+      </p>
+
+    </div>
+
+    <div class="footer">
+      This certificate has been verified through the official
+      NextGen Digital Academy student certificate verification system.
+    </div>
+
+  </div>
+
+</body>
+</html>
