@@ -100,7 +100,7 @@
     <div class="institution-name">NextGen Digital Academy</div>
     <h1>Certificate Verification</h1>
 
-    <div class="verified">
+    <div id="status-badge" class="verified">
       ✓ CERTIFICATE VERIFIED
     </div>
 
@@ -110,23 +110,33 @@
     <div class="details">
 
       <p>
+        <span class="label">ID Number:</span>
+        <span id="id-number">NDA-C2-2026</span>
+      </p>
+
+      <p>
+        <span class="label">Cohort:</span>
+        <span id="cohort">COHORT 2</span>
+      </p>
+
+      <p>
         <span class="label">Student Name:</span>
-        <span id="student-name">STUDENT NAME</span>
+        <span id="student-name">ABRAHAM C GREENFIED</span>
       </p>
 
       <p>
         <span class="label">Course:</span>
-        <span id="course-name">PROFESSIONAL COURSE NAME</span>
+        <span id="course-name">COMPUTER LITERACY & AI</span>
       </p>
 
       <p>
-        <span class="label">Certificate Number:</span>
-        <span id="cert-number">CERT-2026-001</span>
+        <span class="label">Status:</span>
+        <span id="status">VALID</span>
       </p>
 
       <p>
-        <span class="label">Issue Date:</span>
-        <span id="issue-date">08 September 2026</span>
+        <span class="label">Completion Date:</span>
+        <span id="completion-date">6TH SEPTEMBER 2026</span>
       </p>
 
     </div>
@@ -137,20 +147,21 @@
     </div>
 
   </div>
-<!-- SUPABASE INTEGRATION SCRIPT -->
+
+  <!-- SUPABASE INTEGRATION SCRIPT -->
   <script>
     // Replace with your actual Supabase credentials from Settings > API
     const supabaseUrl = 'YOUR_SUPABASE_URL';
-const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+    const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
     const _supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
     async function verifyStudent() {
-      // Get certificate number from URL query parameter (e.g., ?cert=CERT-2026-001)
+      // Get ID number from URL query parameter (e.g., ?id=NDA-C2-2026)
       const urlParams = new URLSearchParams(window.location.search);
-      const certId = urlParams.get('cert');
+      const studentId = urlParams.get('id');
 
-      if (!certId) {
-        console.log('No certificate ID provided in URL');
+      if (!studentId) {
+        console.log('No student ID provided in URL');
         return;
       }
 
@@ -158,7 +169,7 @@ const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
       const { data, error } = await _supabase
         .from('students')
         .select('*')
-        .eq('certificate_number', certId)
+        .eq('id_number', studentId)
         .single();
 
       if (error) {
@@ -168,10 +179,12 @@ const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
 
       if (data) {
         // Update DOM elements with database values
+        if (data.id_number) document.getElementById('id-number').innerText = data.id_number;
+        if (data.cohort) document.getElementById('cohort').innerText = data.cohort;
         if (data.full_name) document.getElementById('student-name').innerText = data.full_name;
         if (data.course) document.getElementById('course-name').innerText = data.course;
-        if (data.certificate_number) document.getElementById('cert-number').innerText = data.certificate_number;
-        if (data.issue_date) document.getElementById('issue-date').innerText = data.issue_date;
+        if (data.status) document.getElementById('status').innerText = data.status;
+        if (data.completion_date) document.getElementById('completion-date').innerText = data.completion_date;
       }
     }
 
