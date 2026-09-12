@@ -150,13 +150,11 @@
 
   <!-- SUPABASE INTEGRATION SCRIPT -->
   <script>
-    // Replace with your actual Supabase credentials from Settings > API
-    const supabaseUrl = 'YOUR_SUPABASE_URL';
-    const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+    const supabaseUrl = 'https://zeqzqtlbofvndrqxkowu.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InplcXpxdGxib2Z2bmRycXhrb3d1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg4MTUzMjcsImV4cCI6MjEwNDM5MTMyN30.gVgRNk3fcWrB9jDg8uHF6ig70N0YIs4_OWxidMjtRlI';
     const _supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
     async function verifyStudent() {
-      // Get ID number from URL query parameter (e.g., ?id=NDA-C2-2026)
       const urlParams = new URLSearchParams(window.location.search);
       const studentId = urlParams.get('id');
 
@@ -165,7 +163,6 @@
         return;
       }
 
-      // Fetch matching record from your Supabase "students" table
       const { data, error } = await _supabase
         .from('students')
         .select('*')
@@ -178,13 +175,13 @@
       }
 
       if (data) {
-        // Update DOM elements with database values
         if (data.id_number) document.getElementById('id-number').innerText = data.id_number;
         if (data.cohort) document.getElementById('cohort').innerText = data.cohort;
         if (data.full_name) document.getElementById('student-name').innerText = data.full_name;
         if (data.course) document.getElementById('course-name').innerText = data.course;
         if (data.status) document.getElementById('status').innerText = data.status;
         if (data.completion_date) document.getElementById('completion-date').innerText = data.completion_date;
+        if (data.photo_url) document.querySelector('.student-photo').src = data.photo_url;
       }
     }
 
